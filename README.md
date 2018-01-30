@@ -2,12 +2,12 @@
 
 Another one wrapper for "drag and drop" action, one of the millions of similar. Just pass by...
 
-**Features**
+## Features
 1. Drag'n'drop
 2. Drag'n'drop
 
 
-**Usage**
+## Usage
 ```javascript
 var dnd = new DnD({target: document.getElementById('drop'), drop, over, out});
 
