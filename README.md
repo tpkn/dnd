@@ -1,6 +1,6 @@
 # DnD
 
-Another one wrapper for "drag and drop" action, one of the millions of similar. Just pass by...
+Another wrapper for "drag and drop" action, one of the millions of similar. Just pass by...
 
 ## Features
 1. Drag'n'drop
