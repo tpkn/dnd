@@ -12,14 +12,14 @@ Another one wrapper for "drag and drop" action, one of the millions of similar. 
 var dnd = new DnD({target: document.getElementById('drop'), drop, over, out});
 
 function drop(e){
-	console.log('dropped: ', e.dataTransfer.files);
+   console.log('dropped: ', e.dataTransfer.files);
 }
 
 function over(e){
-	document.body.style = 'background-color: red';
+   document.body.style = 'background-color: red';
 }
 
 function out(e){
-	document.body.style = 'background-color: white';
+   document.body.style = 'background-color: white';
 }
 ```
