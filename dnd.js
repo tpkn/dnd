@@ -1,20 +1,24 @@
 /*!
- * DnD (v1.0.0.20180128), http://tpkn.me/
+ * Drag'n'Drop, http://tpkn.me/
  */
 
-function DnD(config){
-	if(typeof config !== 'object' || config == null) throw new Error('No config!');
-	if(typeof config.target !== 'object' || config.target == null) throw new Error('No target!')
+function DnD(target, options){
+	if(typeof target !== 'object' || target == null){
+		throw new TypeError('No target element');
+	}
 
-	var target = config.target;
-	var drop = typeof config.drop !== 'function' ? function(e){} : config.drop;
-	var over = typeof config.over !== 'function' ? function(e){} : config.over;
-	var out = typeof config.out   !== 'function' ? function(e){} : config.out;
+	var drop = typeof options.drop !== 'function' ? function(e){} : options.drop;
+	var over = typeof options.over !== 'function' ? function(e){} : options.over;
+	var out =  typeof options.out  !== 'function' ? function(e){} : options.out;
 
 	target.ondrop = function(e){
 		e.preventDefault();
+
+		var files = e.dataTransfer.files;
+		var text = e.dataTransfer.getData('text');
+		
+		drop(e, files, text);
 		out(e);
-		drop(e);
 	};
 
 	target.ondragover = function(e){
@@ -36,4 +40,16 @@ function DnD(config){
 		e.preventDefault();
 		out(e);
 	};
+}
+
+if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+	module.exports = DnD;
+}else{
+	if(typeof define === 'function' && define.amd){
+		define([], function(){
+			return DnD;
+		});
+	}else{
+		window.DnD = DnD;
+	}
 }
