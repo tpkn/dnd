@@ -9,8 +9,8 @@ new DnD(target[, options]);
 ```
 
 ### target
-**Type**: _Function_   
-Callback function
+**Type**: _Object_   
+DOM element
 
 
 ### options.drop
